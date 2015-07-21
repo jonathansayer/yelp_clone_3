@@ -1,0 +1,15 @@
+- if @restaurants.any?
+  - @restaurants.each do |restaurant|
+    %h3
+      Review for 
+      = restaurant.name
+
+      - if restaurant.review.any?
+      %ul
+        - restaurant.reviews.each do |review|
+          %li
+          = review.thoughts
+          %strong= review.rating
+          \/5
+      - else 
+      %p No reviews
