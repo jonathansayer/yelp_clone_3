@@ -18,7 +18,5 @@ class RestaurantsController < ApplicationController
 
   def show
     @restaurant = Restaurant.find(params[:id])
-    binding.pry
-
   end
 end
