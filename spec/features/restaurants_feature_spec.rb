@@ -23,12 +23,19 @@ feature 'restaurants' do
   context 'creating restaurants' do
     scenario 'prompts user to fill out a form, then displays the new restaurant' do
       visit '/restaurants'
+      click_link 'Sign up'
+      fill_in 'Email', with: 'test@gmail.com'
+      fill_in 'Password', with: '123password'
+      fill_in 'Password confirmation', with: '123password'
+      click_button 'Sign up'
       click_link 'Add a restaurant'
       fill_in 'Name', with: 'KFC'
       click_button 'Create Restaurant'
       expect(page).to have_content 'KFC'
       expect(current_path).to eq '/restaurants'
     end
+
+
 
 
     context 'viewing restaurants' do

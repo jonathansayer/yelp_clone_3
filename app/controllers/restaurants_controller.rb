@@ -1,4 +1,8 @@
 class RestaurantsController < ApplicationController
+
+  before_action :authenticate_user!, :except => [:index, :show]
+  #authenticate user, except if they want to go to index or show
+
   def index
     @restaurants = Restaurant.all
   end
@@ -11,7 +15,7 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.new(restaurant_params)
     if @restaurant.save
       redirect_to restaurants_path
-    else 
+    else
       render 'new'
     end
   end
