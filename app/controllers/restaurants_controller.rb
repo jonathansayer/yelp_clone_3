@@ -45,4 +45,9 @@ class RestaurantsController < ApplicationController
   def restaurant_params
     params.require(:restaurant).permit(:name)
   end
+
+  # if current_user.has_reviewed? @restaurant
+  # # some error handling goes here!
+  # end
+
 end
